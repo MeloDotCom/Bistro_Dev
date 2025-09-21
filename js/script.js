@@ -76,7 +76,17 @@ $(function(){
   $('#btnLogin').on('click', function(e){
     const user = getUser();
     if(user){
-      if(confirm('Deseja sair?')){ clearUser(); updateNav(); }
+      if(confirm('Deseja sair?')){
+        clearUser();
+        localStorage.removeItem('bistroCetecCompraBloqueada');
+        localStorage.removeItem('bistroCetecDadosCompra');
+        compraBloqueada = false;
+        dadosCompra = null;
+        $('#diet').prop('readonly', false).val('');
+        $('#quantity').prop('readonly', false).val(1);
+        $('#buyResult').hide();
+        updateNav();
+      }
     } else {
       $('#modalLogin').modal('show');
     }
@@ -100,9 +110,14 @@ $(function(){
     if(!user){ $('#modalLogin').modal('show'); return; }
     $('#buyName').val(user.name);
     $('#buyEmail').val(user.email);
+    $('#diet').prop('readonly', false).val('');
+    $('#quantity').prop('readonly', false).val(1);
     $('#buyResult').hide();
-    $('#quantity').val(1);
     $('#buyTotal').text('R$120,00');
+    compraBloqueada = false;
+    dadosCompra = null;
+    localStorage.removeItem('bistroCetecCompraBloqueada');
+    localStorage.removeItem('bistroCetecDadosCompra');
     $('#modalBuy').modal('show');
   });
 
@@ -116,32 +131,29 @@ $(function(){
 
   // Finalizar compra e gerar PDF com QR
   $('#btnLockBuy').on('click', function(){
-    if (!compraBloqueada) {
-      const user = getUser();
-      if(!user){ alert('Você precisa estar logado'); $('#modalBuy').modal('hide'); $('#modalLogin').modal('show'); return; }
-      const diet = $('#diet').val().trim();
-      const quantity = parseInt($('#quantity').val(), 10) || 1;
-      const uniqueKey = gerarChaveUnica();
-      dadosCompra = {
-        name: user.name,
-        email: user.email,
-        date: '2025-10-28',
-        price: 120.00,
-        restrictions: diet,
-        uniqueKey,
-        quantity
-      };
-      // travar campos
-      $('#diet').prop('readonly', true);
-      $('#quantity').prop('readonly', true);
-      compraBloqueada = true;
-      localStorage.setItem('bistroCetecCompraBloqueada', '1');
-      localStorage.setItem('bistroCetecDadosCompra', JSON.stringify(dadosCompra));
-      $('#buyResult').html('<div class="alert alert-info">Compra registrada! Clique novamente em "Baixar ingresso" para baixar o PDF.</div>').show();
-    } else if (compraBloqueada && dadosCompra) {
-      gerarPDFIngresso(dadosCompra);
-      $('#buyResult').html('<div class="alert alert-success">PDF do ingresso baixado!</div>').show();
-    }
+    const user = getUser();
+    if(!user){ alert('Você precisa estar logado'); $('#modalBuy').modal('hide'); $('#modalLogin').modal('show'); return; }
+    const diet = $('#diet').val().trim();
+    const quantity = parseInt($('#quantity').val(), 10) || 1;
+    const uniqueKey = gerarChaveUnica();
+    const dadosAtuais = {
+      name: user.name,
+      email: user.email,
+      date: '2025-10-28',
+      price: 120.00,
+      restrictions: diet,
+      uniqueKey,
+      quantity
+    };
+    // travar campos
+    $('#diet').prop('readonly', true);
+    $('#quantity').prop('readonly', true);
+    compraBloqueada = true;
+    dadosCompra = dadosAtuais;
+    localStorage.setItem('bistroCetecCompraBloqueada', '1');
+    localStorage.setItem('bistroCetecDadosCompra', JSON.stringify(dadosAtuais));
+    gerarPDFIngresso(dadosAtuais);
+    $('#buyResult').html('<div class="alert alert-success">PDF do ingresso baixado!</div>').show();
   });
 
   // back-to-top
