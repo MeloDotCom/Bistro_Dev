@@ -76,17 +76,7 @@ $(function(){
   $('#btnLogin').on('click', function(e){
     const user = getUser();
     if(user){
-      if(confirm('Deseja sair?')){
-        clearUser();
-        localStorage.removeItem('bistroCetecCompraBloqueada');
-        localStorage.removeItem('bistroCetecDadosCompra');
-        compraBloqueada = false;
-        dadosCompra = null;
-        $('#diet').prop('readonly', false).val('');
-        $('#quantity').prop('readonly', false).val(1);
-        $('#buyResult').hide();
-        updateNav();
-      }
+      if(confirm('Deseja sair?')){ clearUser(); updateNav(); }
     } else {
       $('#modalLogin').modal('show');
     }
@@ -110,14 +100,9 @@ $(function(){
     if(!user){ $('#modalLogin').modal('show'); return; }
     $('#buyName').val(user.name);
     $('#buyEmail').val(user.email);
-    $('#diet').prop('readonly', false).val('');
-    $('#quantity').prop('readonly', false).val(1);
     $('#buyResult').hide();
+    $('#quantity').val(1);
     $('#buyTotal').text('R$120,00');
-    compraBloqueada = false;
-    dadosCompra = null;
-    localStorage.removeItem('bistroCetecCompraBloqueada');
-    localStorage.removeItem('bistroCetecDadosCompra');
     $('#modalBuy').modal('show');
   });
 
