@@ -42,11 +42,12 @@ function gerarPDFIngresso(ticket) {
 
 		doc.setFont("helvetica", "bold");
 		doc.setFontSize(16);
-		doc.text("INGRESSO BISTRÔ CETEC 2025", pageWidth / 2, y, { align: "center" });
+		doc.setTextColor('#0b6096');
 		y += 30;
 
 		doc.setFont("helvetica", "normal");
 		doc.setFontSize(12);
+		doc.setTextColor('#0b6096');
 		doc.text(`Nome: ${ticket.name}`, pageWidth / 2, y, { align: "center" });
 		y += 20;
 		doc.text(`Email: ${ticket.email}`, pageWidth / 2, y, { align: "center" });
