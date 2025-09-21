@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bistrô CETEC 2025</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Bistrô CETEC 2025 - projeto integrado dos cursos técnicos do CETEC">
+
+  <!-- Bootstrap 4 (mantive compatibilidade com o template base) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="container-fluid p-0 nav-bar">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 container">
+    <a class="navbar-brand px-0" href="#">
+      <h1 class="m-0 text-uppercase">Bistrô CETEC</h1>
+      <small style="font-size:.7rem;color:rgba(255,255,255,.85);">Projeto Integrado • 2025</small>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#students">Estudantes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Pratos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#infos">Infos</a></li>
+        <li class="nav-item pl-3">
+          <button id="btnOpenBuy" class="btn btn-light font-weight-bold" title="Comprar ingresso">Comprar ingresso</button>
+        </li>
+        <li class="nav-item pl-3">
+          <button id="btnLogin" class="btn btn-outline-light btn-login">Registrar / Login</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="container-fluid page-header mb-5 position-relative overlay-bottom py-5">
+  <div class="container text-center py-5" style="min-height:240px">
+    <h1 class="display-4 mb-3 text-white text-uppercase">Bistrô CETEC 2025</h1>
+    <p class="text-white mb-1">Venha celebrar o trabalho dos nossos estudantes — Evento: <strong>28 de outubro de 2025</strong></p>
+    <p class="text-white small">Ingresso: <strong>R$120,00</strong> — Após login você poderá comprar.</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT (scrollable) -->
+<main class="container mb-5">
+
+  <!-- About / História -->
+  <section id="about" class="mb-5">
+    <div class="section-title">
+      <h4 class="text-uppercase" style="letter-spacing:4px;">Sobre o Bistrô</h4>
+      <h2 class="display-4">Nossa história</h2>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p>O Bistrô CETEC é um projeto integrado dos cursos técnicos do Colégio Estadual CETEC. Desde a idealização, estudantes de diversas formações trabalham juntos: cozinha, serviço, administração, design e tecnologia — tornando o evento uma vivência real de mercado.</p>
+        <p>O objetivo é promover aprendizagem prática, exibir cardápios desenvolvidos pelos alunos e criar um espaço de convivência entre comunidade, familiares e escola. Os pratos apresentados no site são apenas informativos — NÃO estão à venda separadamente.</p>
+        <a href="#students" class="btn btn-primary mt-2">Conheça os estudantes</a>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="img/group.jpg" alt="Foto do grupo" class="img-fluid rounded" style="max-height:320px; object-fit:cover;">
+        <p class="mt-2 note">Foto: equipe dos cursos técnicos (placeholder). Substitua por imagem real do CETEC.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Students / Espaço dedicado -->
+  <section id="students" class="mb-5">
+    <div class="section-title">
+      <h4 class="text-uppercase" style="letter-spacing:4px;">Estudantes</h4>
+      <h2 class="display-4">Espaço dedicado aos alunos</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Integração entre cursos</h5>
+        <p>Alunos das áreas técnicas participam do planejamento, execução e atendimento. Há estações responsáveis por montagens, porções e decoração — tudo supervisionado pelos professores.</p>
+      </div>
+      <div class="col-md-6">
+        <h5>Aprendizado prático</h5>
+        <p>O Bistrô oferece aos estudantes a experiência de criar um evento real, desenvolver cardápios, executar logística e receber feedback do público.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu / Pratos informativos -->
+  <section id="menu" class="mb-5">
+    <div class="section-title">
+      <h4 class="text-uppercase" style="letter-spacing:4px;">Cardápio</h4>
+      <h2 class="display-4">Pratos desenvolvidos pelos alunos</h2>
+      <p class="note">Obs: itens abaixo são ilustrativos e <strong>não estão à venda</strong> — listados para consulta.</p>
+    </div>
+
+    <div class="row">
+      <!-- Dish 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card dish-card p-3">
+          <img src="img/dish1.jpg" class="card-img-top rounded" alt="Prato 1" style="height:180px; object-fit:cover">
+          <div class="card-body">
+            <h5 class="card-title">Risoto Mediterrâneo</h5>
+            <p class="card-text">Risoto com ervas, tomate confit e lascas de queijo - receita criada pela turma de gastronomia.</p>
+            <p class="small text-muted mb-0">Informativo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dish 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card dish-card p-3">
+          <img src="img/dish2.jpg" class="card-img-top rounded" alt="Prato 2" style="height:180px; object-fit:cover">
+          <div class="card-body">
+            <h5 class="card-title">Salada do Estudante</h5>
+            <p class="card-text">Mix de folhas, grãos, legumes grelhados e vinagrete cítrico.</p>
+            <p class="small text-muted mb-0">Informativo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dish 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card dish-card p-3">
+          <img src="img/dish3.jpg" class="card-img-top rounded" alt="Prato 3" style="height:180px; object-fit:cover">
+          <div class="card-body">
+            <h5 class="card-title">Doce da Convivência</h5>
+            <p class="card-text">Sobremesa coletiva criada pela oficina de confeitaria — pequena porção para prova.</p>
+            <p class="small text-muted mb-0">Informativo</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Infos / Local e Horário -->
+  <section id="infos" class="mb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Data e Local</h3>
+        <p><strong>28 de outubro de 2025</strong> — Bistrô CETEC (local dentro do colégio). Horário: 18:30 - 22:00.</p>
+        <h5>Ingressos</h5>
+        <p>Valor do ingresso: <strong>R$120,00</strong>. Ingressos vendidos exclusivamente pelo botão "Comprar ingresso" após login (simulação sem sistema de pagamento real).</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Contato</h3>
+        <p>Email: <a href="mailto:contato@cetec.edu.br">contato@cetec.edu.br</a></p>
+        <p>Telefone: (00) 0000-0000</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="container-fluid footer py-4">
+  <div class="container text-white">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Bistrô CETEC • 2025</h5>
+        <p class="small">Projeto educacional dos cursos técnicos do Colégio CETEC.</p>
+      </div>
+      <div class="col-md-6 text-md-right">
+        <small>Desenvolvido por equipe interna • Paleta Mediterrânea</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- Modals (Login / Compra) -->
+<!-- Login/Register Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title">Registrar / Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formLogin">
+          <div class="form-group">
+            <label for="userName">Nome completo</label>
+            <input id="userName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input id="userEmail" type="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <small class="form-text text-muted">Este é um login simulado para permitir a compra do ingresso (não há integração com pagamento).</small>
+          </div>
+          <button class="btn btn-primary" type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Buy Modal -->
+<div class="modal fade" id="modalBuy" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title">Comprar ingresso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formBuy">
+          <div class="form-group">
+            <label for="buyName">Nome</label>
+            <input id="buyName" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label for="buyEmail">Email</label>
+            <input id="buyEmail" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label for="diet">Restrições alimentares (opcional)</label>
+            <textarea id="diet" class="form-control" placeholder="Ex: restrição a lactose, vegetariano, alergia a amendoim..."></textarea>
+          </div>
+          <div class="form-group">
+            <p>Valor: <strong>R$120,00</strong></p>
+          </div>
+          <button class="btn btn-success" type="submit">Finalizar compra</button>
+        </form>
+        <div id="buyResult" class="mt-3" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- JS libs -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- QRCode.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</body>
+</html>
