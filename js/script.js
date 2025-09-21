@@ -33,8 +33,6 @@ function updateNav() {
     btnOpenBuy.title = 'Você precisa estar logado para finalizar a compra';
   }
 }
-
-// Gera chave única #CETECXXXXXX
 // jQuery On ready
 $(function(){
   let compraBloqueada = false;
