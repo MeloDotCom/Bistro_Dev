@@ -111,6 +111,8 @@ function gerarPDFIngresso(ticket) {
 }
 // jQuery On ready
 $(function(){
+  let compraBloqueada = false;
+  let dadosCompra = null;
   updateNav();
 
   // Abrir modal automaticamente se vier de outra tela
@@ -174,16 +176,14 @@ $(function(){
   });
 
   // Finalizar compra e gerar PDF com QR
-  $('#formBuy').on('submit', function(ev){
-    ev.preventDefault();
-    const user = getUser();
-    if(!user){ alert('Você precisa estar logado'); $('#modalBuy').modal('hide'); $('#modalLogin').modal('show'); return; }
-
-    const diet = $('#diet').val().trim();
-    const quantity = parseInt($('#quantity').val(), 10) || 1;
-    for(let i=0; i<quantity; i++){
+  $('#btnLockBuy').on('click', function(){
+    if (!compraBloqueada) {
+      const user = getUser();
+      if(!user){ alert('Você precisa estar logado'); $('#modalBuy').modal('hide'); $('#modalLogin').modal('show'); return; }
+      const diet = $('#diet').val().trim();
+      const quantity = parseInt($('#quantity').val(), 10) || 1;
       const uniqueKey = gerarChaveUnica();
-      const ticket = {
+      dadosCompra = {
         name: user.name,
         email: user.email,
         date: '2025-10-28',
@@ -192,10 +192,15 @@ $(function(){
         uniqueKey,
         quantity
       };
-      gerarPDFIngresso(ticket);
+      // travar campos
+      $('#diet').prop('readonly', true);
+      $('#quantity').prop('readonly', true);
+      compraBloqueada = true;
+      $('#buyResult').html('<div class="alert alert-info">Compra registrada! Clique novamente em "Baixar ingresso" para baixar o PDF.</div>').show();
+    } else if (compraBloqueada && dadosCompra) {
+      gerarPDFIngresso(dadosCompra);
+      $('#buyResult').html('<div class="alert alert-success">PDF do ingresso baixado!</div>').show();
     }
-    $('#buyResult').html('<div class="alert alert-success">PDF(s) do ingresso gerado! Confira seu download.</div>').show();
-    $('#diet').val('');
   });
 
   // back-to-top
