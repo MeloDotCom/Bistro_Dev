@@ -47,7 +47,7 @@ function gerarPDFIngresso(ticket) {
 		y += 30;
 
 		doc.setFont("helvetica", "normal");
-		doc.setFontSize(12);
+		doc.setFontSize(10);
 		doc.setTextColor('#0b6096');
 		doc.text(`Nome: ${ticket.name}`, pageWidth / 2, y, { align: "center" });
 		y += 20;
@@ -68,7 +68,7 @@ function gerarPDFIngresso(ticket) {
 		// QR code
 		const qrText = `Chave: ${ticket.uniqueKey} | Nome: ${ticket.name}`;
 		generateQRCodeDataURL(qrText, function (qrDataUrl) {
-			const qrSize = 50;
+			const qrSize = 80;
 			doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
 
 			// download do PDF
