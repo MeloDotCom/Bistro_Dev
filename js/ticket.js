@@ -69,7 +69,7 @@ function gerarPDFIngresso(ticket) {
 		const qrText = `Chave: ${ticket.uniqueKey} | Nome: ${ticket.name}`;
 		generateQRCodeDataURL(qrText, function (qrDataUrl) {
 			const qrSize = 80;
-			doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
+			doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 15, qrSize, qrSize);
 
 			// download do PDF
 			doc.save(`ingresso_${ticket.name.replace(/ /g, "_")}.pdf`);
