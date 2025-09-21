@@ -44,7 +44,7 @@ function gerarPDFIngresso(ticket) {
 		doc.setFontSize(16);
 		doc.setTextColor('#0b6096');
 
-		y += 30;
+		y += 20;
 
 		doc.setFont("helvetica", "normal");
 		doc.setFontSize(10);
