@@ -113,6 +113,19 @@ function gerarPDFIngresso(ticket) {
 $(function(){
   let compraBloqueada = false;
   let dadosCompra = null;
+  // Verifica bloqueio persistente
+  if(localStorage.getItem('bistroCetecCompraBloqueada')) {
+    compraBloqueada = true;
+    try { dadosCompra = JSON.parse(localStorage.getItem('bistroCetecDadosCompra')); } catch(e){}
+    $('#diet').prop('readonly', true);
+    $('#quantity').prop('readonly', true);
+    if(dadosCompra) {
+      $('#diet').val(dadosCompra.restrictions);
+      $('#quantity').val(dadosCompra.quantity);
+      $('#buyTotal').text('R$' + (dadosCompra.quantity * 120).toFixed(2).replace('.',','));
+      $('#buyResult').html('<div class="alert alert-info">Compra registrada! Clique em "Baixar ingresso" para baixar o PDF.</div>').show();
+    }
+  }
   updateNav();
 
   // Abrir modal automaticamente se vier de outra tela
@@ -196,6 +209,8 @@ $(function(){
       $('#diet').prop('readonly', true);
       $('#quantity').prop('readonly', true);
       compraBloqueada = true;
+      localStorage.setItem('bistroCetecCompraBloqueada', '1');
+      localStorage.setItem('bistroCetecDadosCompra', JSON.stringify(dadosCompra));
       $('#buyResult').html('<div class="alert alert-info">Compra registrada! Clique novamente em "Baixar ingresso" para baixar o PDF.</div>').show();
     } else if (compraBloqueada && dadosCompra) {
       gerarPDFIngresso(dadosCompra);
