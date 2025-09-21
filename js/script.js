@@ -67,10 +67,10 @@ function gerarPDFIngresso(ticket) {
   const pageHeight = doc.internal.pageSize.getHeight();
 
   const img = new Image();
-  img.src = "img/template_ingresso.jpg"; // caminho correto
+  img.src = "img/template_ingresso.png"; // caminho correto
   img.onload = () => {
     // Adiciona template como fundo
-    doc.addImage(img, "JPEG", 0, 0, pageWidth, pageHeight);
+    doc.addImage(img, "PNG", 0, 0, pageWidth, pageHeight);
 
     // Texto no meio da página
     let y = pageHeight / 3;
@@ -88,7 +88,9 @@ function gerarPDFIngresso(ticket) {
     y += 20;
     doc.text(`Data do evento: 28/10/2025`, pageWidth / 2, y, { align: "center" });
     y += 20;
-    doc.text(`Valor: R$120,00`, pageWidth / 2, y, { align: "center" });
+    doc.text(`Quantidade de ingressos: ${ticket.quantity}`, pageWidth / 2, y, { align: "center" });
+    y += 20;
+    doc.text(`Valor total: R$${(ticket.price * ticket.quantity).toFixed(2).replace('.',',')}`, pageWidth / 2, y, { align: "center" });
     y += 20;
     doc.text(`Restrições alimentares: ${ticket.restrictions || 'Nenhuma especificada'}`, pageWidth / 2, y, { align: "center" });
     y += 20;
@@ -100,7 +102,7 @@ function gerarPDFIngresso(ticket) {
     const qrText = `Chave: ${ticket.uniqueKey} | Nome: ${ticket.name}`;
     generateQRCodeDataURL(qrText, function (qrDataUrl) {
       const qrSize = 100;
-      doc.addImage(qrDataUrl, "JPEG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
+      doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
 
       // download do PDF
       doc.save(`ingresso_${ticket.name.replace(/ /g, "_")}.pdf`);
@@ -187,7 +189,8 @@ $(function(){
         date: '2025-10-28',
         price: 120.00,
         restrictions: diet,
-        uniqueKey
+        uniqueKey,
+        quantity
       };
       gerarPDFIngresso(ticket);
     }
