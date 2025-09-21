@@ -10,12 +10,13 @@ function gerarChaveUnica() {
 // Função para gerar QR code como DataURL
 function generateQRCodeDataURL(text, callback){
 	const tempDiv = document.createElement("div");
-	const qr = new QRCode(tempDiv, {
-		text: text,
-		width: 150,
-		height: 150,
-		correctLevel: QRCode.CorrectLevel.H
-	});
+		const qr = new QRCode(tempDiv, {
+			text: text,
+			width: 150,
+			height: 150,
+			colorDark: "#0b6096", // Deep blue for site palette
+			correctLevel: QRCode.CorrectLevel.H
+		});
 	setTimeout(()=>{
 		const img = tempDiv.querySelector("img");
 		callback(img.src);
@@ -43,6 +44,7 @@ function gerarPDFIngresso(ticket) {
 		doc.setFont("helvetica", "bold");
 		doc.setFontSize(16);
 		doc.setTextColor('#0b6096');
+
 		y += 30;
 
 		doc.setFont("helvetica", "normal");
@@ -67,7 +69,7 @@ function gerarPDFIngresso(ticket) {
 		// QR code
 		const qrText = `Chave: ${ticket.uniqueKey} | Nome: ${ticket.name}`;
 		generateQRCodeDataURL(qrText, function (qrDataUrl) {
-			const qrSize = 100;
+			const qrSize = 70;
 			doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
 
 			// download do PDF
