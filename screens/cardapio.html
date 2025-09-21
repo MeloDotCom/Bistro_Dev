@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cardápio Bistrô CETEC 2025</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg py-3 w-100 fixed-top" style="background: var(--sand); box-shadow: 0 2px 8px rgba(0,0,0,.08);">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="container-fluid collapse navbar-collapse justify-content-between" id="navMain">
+    <!-- ESQUERDA -->
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item"><a class="nav-link" href="../index.html#about">Sobre</a></li>
+      <li class="nav-item"><a class="nav-link" href="../index.html#students">Estudantes</a></li>
+      <li class="nav-item"><a class="nav-link" href="cardapio.html">Cardápio</a></li>
+      <li class="nav-item"><a class="nav-link" href="../index.html#infos">Infos</a></li>
+    </ul>
+
+    <!-- CENTRO (LOGO) -->
+    <a class="navbar-brand mx-auto d-none d-lg-block" href="../index.html">
+      <img src="../img/logo.png" alt="Logo Bistrô CETEC" style="height:100px;">
+    </a>
+
+    <!-- DIREITA -->
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item pl-3">
+  <button id="btnOpenBuy" class="btn btn-light" onclick="window.location.href='../index.html#btnOpenBuy';">Comprar ingresso</button>
+      </li>
+      <li class="nav-item pl-3">
+  <button id="btnLogin" class="btn btn-outline-light btn-login" onclick="window.location.href='../index.html#btnLogin';">Registrar / Login</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container py-5" style="min-height:100vh; margin-top:120px;">
+  <!-- Introdução -->
+  <section class="mb-5">
+    <h2 class="display-4 text-center mb-3">Cardápio do Bistrô CETEC 2025</h2>
+    <p class="lead text-center">Todos os pratos foram desenvolvidos pelos alunos dos cursos técnicos, integrando criatividade, técnica e tradição. O cardápio é resultado de trabalho colaborativo e aprendizado prático.</p>
+  </section>
+
+  <!-- Entrada -->
+  <section class="mb-5">
+    <h3 class="text-uppercase text-primary mb-3">Entrada</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Bruschetta Mediterrânea</h5>
+        <p class="card-text">Pão artesanal, tomate confit, azeite de oliva e ervas frescas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prato Principal -->
+  <section class="mb-5">
+    <h3 class="text-uppercase text-primary mb-3">Prato Principal</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Risoto de Ervas e Queijo</h5>
+        <p class="card-text">Risoto cremoso com ervas selecionadas, tomate confit e lascas de queijo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segundo Prato -->
+  <section class="mb-5">
+    <h3 class="text-uppercase text-primary mb-3">Segundo Prato</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Salada do Estudante</h5>
+        <p class="card-text">Mix de folhas, grãos, legumes grelhados e vinagrete cítrico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobremesa -->
+  <section class="mb-5">
+    <h3 class="text-uppercase text-primary mb-3">Sobremesa</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Doce da Convivência</h5>
+        <p class="card-text">Sobremesa coletiva criada pela oficina de confeitaria — pequena porção para prova.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>

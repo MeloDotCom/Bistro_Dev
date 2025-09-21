@@ -111,6 +111,24 @@ function gerarPDFIngresso(ticket) {
 $(function(){
   updateNav();
 
+  // Abrir modal automaticamente se vier de outra tela
+  if(window.location.hash === '#btnLogin') {
+    $('#modalLogin').modal('show');
+    window.location.hash = '';
+  }
+  if(window.location.hash === '#btnOpenBuy') {
+    const user = getUser();
+    if(!user){
+      $('#modalLogin').modal('show');
+    } else {
+      $('#buyName').val(user.name);
+      $('#buyEmail').val(user.email);
+      $('#buyResult').hide();
+      $('#modalBuy').modal('show');
+    }
+    window.location.hash = '';
+  }
+
   // Abrir modal login
   $('#btnLogin').on('click', function(e){
     const user = getUser();
@@ -140,7 +158,17 @@ $(function(){
     $('#buyName').val(user.name);
     $('#buyEmail').val(user.email);
     $('#buyResult').hide();
+    $('#quantity').val(1);
+    $('#buyTotal').text('R$120,00');
     $('#modalBuy').modal('show');
+  });
+
+  // Atualizar valor total ao mudar quantidade
+  $(document).on('input', '#quantity', function(){
+    let qtd = parseInt($(this).val(), 10);
+    if(isNaN(qtd) || qtd < 1) qtd = 1;
+    const total = qtd * 120;
+    $('#buyTotal').text('R$' + total.toFixed(2).replace('.',','));
   });
 
   // Finalizar compra e gerar PDF com QR
@@ -150,19 +178,20 @@ $(function(){
     if(!user){ alert('Você precisa estar logado'); $('#modalBuy').modal('hide'); $('#modalLogin').modal('show'); return; }
 
     const diet = $('#diet').val().trim();
-    const uniqueKey = gerarChaveUnica();
-    const ticket = {
-      name: user.name,
-      email: user.email,
-      date: '2025-10-28',
-      price: 120.00,
-      restrictions: diet,
-      uniqueKey
-    };
-
-    gerarPDFIngresso(ticket);
-
-    $('#buyResult').html('<div class="alert alert-success">PDF do ingresso gerado! Confira seu download.</div>').show();
+    const quantity = parseInt($('#quantity').val(), 10) || 1;
+    for(let i=0; i<quantity; i++){
+      const uniqueKey = gerarChaveUnica();
+      const ticket = {
+        name: user.name,
+        email: user.email,
+        date: '2025-10-28',
+        price: 120.00,
+        restrictions: diet,
+        uniqueKey
+      };
+      gerarPDFIngresso(ticket);
+    }
+    $('#buyResult').html('<div class="alert alert-success">PDF(s) do ingresso gerado! Confira seu download.</div>').show();
     $('#diet').val('');
   });
 

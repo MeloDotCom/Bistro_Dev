@@ -1,42 +1,132 @@
-    /* Paleta Mediterrânea: azul Profundo, azul-mar, areia, verde-oliva, branco */
-    :root{
-      --blue-deep: #0b6096;
-      --blue-sea: #2a9df4;
-      --sand: #f4e7d3;
-      --olive: #708238;
-      --white: #ffffff;
-      --muted: #6c757d;
-    }
 
-    body{font-family: 'Montserrat', 'Roboto', sans-serif; background: linear-gradient(180deg,var(--sand),#fff); color:#222}
 
-    /* Navbar */
-    .nav-bar{background: linear-gradient(90deg,var(--blue-deep),var(--blue-sea));}
-    .navbar-brand h1{font-size:1.4rem; letter-spacing:2px}
-    .nav-item a{color:var(--white) !important}
+/* Paleta Mediterrânea: azul Profundo, azul-mar, areia, verde-oliva, branco */
+:root{
+  --blue-deep: #0b6096;
+  --blue-sea: #2a9df4;
+  --sand: #f4e7d3;
+  --olive: #708238;
+  --white: #ffffff;
+  --muted: #6c757d;
+}
 
-    /* Login/Register button at top-right */
-    .btn-login{margin-left:auto}
+body {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(180deg, var(--sand), #fff);
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Page header */
-    .page-header{background:linear-gradient(rgba(11,96,150,.85),rgba(42,157,244,.85)), url('img/header-bg.jpg') center/cover no-repeat; color:var(--white)}
+/* Navbar */
+.nav-bar {
+  background: linear-gradient(90deg, var(--sand), var(--sand));
+}
 
-    /* Sections */
-    .section-title h4{color:var(--olive)}
-    .display-4{color:var(--blue-deep)}
+.navbar-brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--blue-deep);
+}
 
-    /* Cards for pratos */
-    .dish-card{border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.08);}
-    .note{font-size:.9rem; color:var(--muted)}
+.nav-item a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--blue-deep);
+  margin-right: 1rem;
+}
 
-    /* Footer */
-    .footer{background:linear-gradient(180deg, #0b3d5d, #063049); color:var(--white)}
+.btn-login {
+  font-family: 'Playfair Display', serif;
+  margin-left: auto;
+}
 
-    /* Back to top */
-    .back-to-top{position:fixed; right:20px; bottom:20px}
+/* Todos os botões da navbar com cor personalizada */
+.navbar .btn {
+  font-family: 'Playfair Display', serif;
+  background-color: var(--blue-deep);
+  border-color: var(--blue-deep);
+  color: #fff;
+}
 
-    /* Small responsiveness */
-    @media(max-width:768px){
-      .navbar-nav{background:transparent}
-      .page-header{min-height:220px}
-    }
+/* Efeito hover */
+.navbar .btn:hover {
+  background-color: #003366; /* um tom mais escuro do azul */
+  border-color: #003366;
+  color: #fff;
+}
+
+/* Page header */
+.page-header {
+  background:  url('img/header-bg.jpg') center/cover no-repeat;
+  color: var(--white);
+}
+
+/* Sections */
+.section-title h4 {
+  color: var(--olive);
+}
+
+.display-4 {
+  color: var(--blue-deep);
+}
+
+/* Cards for pratos */
+.dish-card {
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+.note {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(180deg, #0b3d5d, #063049);
+  color: var(--white);
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+/* Small responsiveness */
+@media(max-width:768px){
+  .navbar-nav { background: transparent; }
+  .page-header { min-height: 220px; }
+}
+/* Cada seção ocupa 100% da altura da tela */
+.fullscreen-section {
+  min-height: 100vh;        /* altura mínima da viewport */
+  display: flex;            /* centraliza conteúdo */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Header ocupa a tela toda */
+.page-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* navbar em cima e conteúdo abaixo */
+  justify-content: space-between;
+  background: url('img/fundo_header.png') center/cover no-repeat;
+  color: var(--white);
+}
+
+/* Navbar transparente dentro do header */
+.page-header .navbar {
+  background: var(--sand) !important;
+}
+
+/* Forçar links da navbar a ficarem brancos no header */
+.page-header .navbar .nav-link,
+.page-header .navbar .btn {
+
+}
+

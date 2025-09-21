@@ -8,31 +8,42 @@
   <meta name="description" content="Bistrô CETEC 2025 - projeto integrado dos cursos técnicos do CETEC">
 
   <!-- Bootstrap 4 (mantive compatibilidade com o template base) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="container-fluid p-0 nav-bar">
-  <nav class="navbar navbar-expand-lg navbar-dark py-3 container">
-    <a class="navbar-brand px-0" href="#">
-      <h1 class="m-0 text-uppercase">Bistrô CETEC</h1>
-      <small style="font-size:.7rem;color:rgba(255,255,255,.85);">Projeto Integrado • 2025</small>
-    </a>
+<!-- PAGE HEADER (com navbar dentro) -->
+<header class="container-fluid page-header position-relative overlay-bottom fullscreen-section">
 
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg py-3 w-100 fixed-top bg-white shadow">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav ml-auto align-items-center">
+  <div class="container-fluid collapse navbar-collapse justify-content-between" id="navMain">
+
+      <!-- ESQUERDA -->
+      <ul class="navbar-nav align-items-center">
         <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
         <li class="nav-item"><a class="nav-link" href="#students">Estudantes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#menu">Pratos</a></li>
+  <li class="nav-item"><a class="nav-link" href="screens/cardapio.html">Cardápio</a></li>
         <li class="nav-item"><a class="nav-link" href="#infos">Infos</a></li>
+      </ul>
+
+      <!-- CENTRO (LOGO) -->
+      <a class="navbar-brand mx-auto d-none d-lg-block" href="#">
+        <img src="img/logo.png" alt="Logo Bistrô CETEC" style="height:100px;">
+      </a>
+
+      <!-- DIREITA -->
+      <ul class="navbar-nav align-items-center">
         <li class="nav-item pl-3">
-          <button id="btnOpenBuy" class="btn btn-light font-weight-bold" title="Comprar ingresso">Comprar ingresso</button>
+          <button id="btnOpenBuy" class="btn btn-light">Comprar ingresso</button>
         </li>
         <li class="nav-item pl-3">
           <button id="btnLogin" class="btn btn-outline-light btn-login">Registrar / Login</button>
@@ -40,22 +51,21 @@
       </ul>
     </div>
   </nav>
-</nav>
 
-<!-- PAGE HEADER -->
-<header class="container-fluid page-header mb-5 position-relative overlay-bottom py-5">
-  <div class="container text-center py-5" style="min-height:240px">
-    <h1 class="display-4 mb-3 text-white text-uppercase">Bistrô CETEC 2025</h1>
-    <p class="text-white mb-1">Venha celebrar o trabalho dos nossos estudantes — Evento: <strong>28 de outubro de 2025</strong></p>
-    <p class="text-white small">Ingresso: <strong>R$120,00</strong> — Após login você poderá comprar.</p>
-  </div>
+  <!-- TEXTO HEADER -->
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center" style="min-height:70vh; height:70vh;">
+    <div class="d-flex flex-column justify-content-center align-items-center text-center" style="flex:1; min-height:0; height:100%; padding-top:13rem;">
+      <h1 class="display-4 mb-3 text-uppercase" style="color:var(--blue-deep);">Bistrô CETEC 2025</h1>
+      <p class="mb-1" style="color:var(--blue-deep);">Venha celebrar o trabalho dos nossos estudantes — Evento: <strong style="color:var(--blue-deep);">28 de outubro de 2025</strong></p>
+      <p class="small" style="color:var(--blue-deep);">Ingresso: <strong style="color:var(--blue-deep);">R$120,00</strong> — Após login você poderá comprar.</p>
+    </div>
 </header>
 
 <!-- MAIN CONTENT (scrollable) -->
 <main class="container mb-5">
 
   <!-- About / História -->
-  <section id="about" class="mb-5">
+  <section id="about" class="fullscreen-section">
     <div class="section-title">
       <h4 class="text-uppercase" style="letter-spacing:4px;">Sobre o Bistrô</h4>
       <h2 class="display-4">Nossa história</h2>
@@ -74,7 +84,7 @@
   </section>
 
   <!-- Students / Espaço dedicado -->
-  <section id="students" class="mb-5">
+  <section id="students" class="fullscreen-section">
     <div class="section-title">
       <h4 class="text-uppercase" style="letter-spacing:4px;">Estudantes</h4>
       <h2 class="display-4">Espaço dedicado aos alunos</h2>
@@ -92,55 +102,9 @@
   </section>
 
   <!-- Menu / Pratos informativos -->
-  <section id="menu" class="mb-5">
-    <div class="section-title">
-      <h4 class="text-uppercase" style="letter-spacing:4px;">Cardápio</h4>
-      <h2 class="display-4">Pratos desenvolvidos pelos alunos</h2>
-      <p class="note">Obs: itens abaixo são ilustrativos e <strong>não estão à venda</strong> — listados para consulta.</p>
-    </div>
-
-    <div class="row">
-      <!-- Dish 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card dish-card p-3">
-          <img src="img/dish1.jpg" class="card-img-top rounded" alt="Prato 1" style="height:180px; object-fit:cover">
-          <div class="card-body">
-            <h5 class="card-title">Risoto Mediterrâneo</h5>
-            <p class="card-text">Risoto com ervas, tomate confit e lascas de queijo - receita criada pela turma de gastronomia.</p>
-            <p class="small text-muted mb-0">Informativo</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dish 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card dish-card p-3">
-          <img src="img/dish2.jpg" class="card-img-top rounded" alt="Prato 2" style="height:180px; object-fit:cover">
-          <div class="card-body">
-            <h5 class="card-title">Salada do Estudante</h5>
-            <p class="card-text">Mix de folhas, grãos, legumes grelhados e vinagrete cítrico.</p>
-            <p class="small text-muted mb-0">Informativo</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dish 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card dish-card p-3">
-          <img src="img/dish3.jpg" class="card-img-top rounded" alt="Prato 3" style="height:180px; object-fit:cover">
-          <div class="card-body">
-            <h5 class="card-title">Doce da Convivência</h5>
-            <p class="card-text">Sobremesa coletiva criada pela oficina de confeitaria — pequena porção para prova.</p>
-            <p class="small text-muted mb-0">Informativo</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- Infos / Local e Horário -->
-  <section id="infos" class="mb-5">
+  <section id="infos" class="fullscreen-section">
     <div class="row">
       <div class="col-md-6">
         <h3>Data e Local</h3>
@@ -228,7 +192,11 @@
             <textarea id="diet" class="form-control" placeholder="Ex: restrição a lactose, vegetariano, alergia a amendoim..."></textarea>
           </div>
           <div class="form-group">
-            <p>Valor: <strong>R$120,00</strong></p>
+            <label for="quantity">Quantidade de ingressos</label>
+            <input id="quantity" type="number" class="form-control" min="1" value="1">
+          </div>
+          <div class="form-group">
+            <p>Valor: <strong id="buyTotal">R$120,00</strong></p>
           </div>
           <button class="btn btn-success" type="submit">Finalizar compra</button>
         </form>
