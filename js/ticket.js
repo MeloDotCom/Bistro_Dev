@@ -14,7 +14,6 @@ function generateQRCodeDataURL(text, callback){
 			text: text,
 			width: 150,
 			height: 150,
-			colorDark: "#0b6096", // Deep blue for site palette
 			correctLevel: QRCode.CorrectLevel.H
 		});
 	setTimeout(()=>{
@@ -69,7 +68,7 @@ function gerarPDFIngresso(ticket) {
 		// QR code
 		const qrText = `Chave: ${ticket.uniqueKey} | Nome: ${ticket.name}`;
 		generateQRCodeDataURL(qrText, function (qrDataUrl) {
-			const qrSize = 70;
+			const qrSize = 50;
 			doc.addImage(qrDataUrl, "PNG", (pageWidth - qrSize) / 2, y + 20, qrSize, qrSize);
 
 			// download do PDF
